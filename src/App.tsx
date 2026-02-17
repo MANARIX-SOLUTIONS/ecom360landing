@@ -28,7 +28,7 @@ const DEMO_WHATSAPP_URL = `https://wa.me/${WHATSAPP_DEMO}?text=${encodeURICompon
 const TESTIMONIALS = [
   {
     quote:
-      "Avant 360 PME, je perdais des heures à tout noter à la main. Maintenant je vois mes ventes en temps réel et mes clients paient en Wave. Un vrai gain de temps.",
+      "Avant Ecom 360 PME, je perdais des heures à tout noter à la main. Maintenant je vois mes ventes en temps réel et mes clients paient en Wave. Un vrai gain de temps.",
     name: "Mamadou Diallo",
     role: "Commerçant, Dakar",
   },
@@ -83,7 +83,7 @@ function App() {
         <div className="header-inner container">
           <a href="/" className="logo">
             <Store size={28} strokeWidth={2} />
-            <span>360 PME Commerce</span>
+            <span>Ecom 360 PME</span>
           </a>
           <nav className="header-nav">
             <div className="nav-links">
@@ -424,7 +424,7 @@ function App() {
       {/* Testimonials */}
       <section className="testimonials">
         <div className="section-header">
-          <h2>Ils ont choisi 360 PME</h2>
+          <h2>Ils ont choisi Ecom 360 PME</h2>
           <p>Des commerçants comme vous qui ont simplifié leur quotidien.</p>
         </div>
         <div className="testimonials-grid">
@@ -630,7 +630,7 @@ function App() {
       {/* CTA */}
       <section className="cta">
         <div className="cta-inner">
-          <h2>Rejoignez 500+ commerces qui font confiance à 360 PME</h2>
+          <h2>Rejoignez 500+ commerces qui font confiance à Ecom 360 PME</h2>
           <p>
             30 jours d'essai gratuit. Aucune carte bancaire. Opérationnel en
             moins de 5 minutes.
@@ -654,7 +654,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-inner container">
-          <div className="footer-logo">360 PME Commerce</div>
+          <div className="footer-logo">Ecom 360 PME</div>
           <div className="footer-links">
             <a href="#features">Fonctionnalités</a>
             <a href="#pricing">Tarifs</a>
@@ -663,7 +663,7 @@ function App() {
           </div>
           <div className="footer-bottom">
             <div className="footer-copy">
-              © 2026 360 PME Commerce — Sénégal & Afrique
+              © 2026 Ecom 360 PME — Sénégal & Afrique
             </div>
             <div className="footer-powered">
               Powered by <span className="footer-powered-name">Manarix Solutions</span>
