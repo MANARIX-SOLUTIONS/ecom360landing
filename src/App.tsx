@@ -273,7 +273,7 @@ function App() {
         <div className="section-header">
           <h2>Vous perdez du temps et de l'argent ?</h2>
           <p>
-            Les carnets et Excel, c'est fini. 360 PME vous fait gagner des
+            Les carnets et Excel, c'est fini. Ecom 360 PME vous fait gagner des
             heures chaque semaine.
           </p>
         </div>
@@ -291,7 +291,7 @@ function App() {
           <div className="benefit-arrow">→</div>
           <div className="benefit-card highlight">
             <div className="benefit-icon">✅</div>
-            <h3>Avec 360 PME</h3>
+            <h3>Avec Ecom 360 PME</h3>
             <ul>
               <li>Calculs automatiques, zéro erreur</li>
               <li>Stock en temps réel, alertes bas</li>
