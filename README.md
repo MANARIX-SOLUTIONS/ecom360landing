@@ -1,6 +1,6 @@
 # 360 PME Commerce — Landing Page
 
-Modern marketing landing page for the 360 PME Commerce SaaS platform. Built with React, TypeScript, and Vite.
+Modern marketing landing page for the Ecom 360 PME Commerce SaaS platform. Built with React, TypeScript, and Vite.
 
 ## Features
 
