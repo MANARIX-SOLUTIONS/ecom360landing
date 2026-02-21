@@ -23,7 +23,8 @@ import "./Landing.css";
 
 const APP_URL = import.meta.env.VITE_APP_URL || "http://localhost:5173";
 const WHATSAPP_DEMO = import.meta.env.VITE_WHATSAPP_DEMO || "221778000000";
-const DEMO_WHATSAPP_URL = `https://wa.me/${WHATSAPP_DEMO}?text=${encodeURIComponent("Bonjour, je souhaite demander une démo de 360 PME Commerce.")}`;
+const WHATSAPP_DEMO_TEXT = "Bonjour, je souhaite demander une démo de Ecom 360 PME.";
+const DEMO_WHATSAPP_URL = `https://wa.me/${WHATSAPP_DEMO}?text=${encodeURIComponent(WHATSAPP_DEMO_TEXT)}`;
 
 const TESTIMONIALS = [
   {
@@ -65,10 +66,81 @@ const FAQ_ITEMS = [
   },
 ];
 
+const PLANS = {
+  starter: {
+    name: "Starter",
+    target: "Petit commerce",
+    monthly: 15000,
+    yearly: 120000,
+    features: [
+      "2 utilisateur(s)",
+      "1 boutique(s)",
+      "Ventes : 500/mois",
+      "Produits : 100",
+      "POS complet",
+      "Reçus de vente",
+    ],
+    cta: "Commencer",
+    ctaHref: "login",
+    ctaDemo: false,
+    popular: false,
+  },
+  pro: {
+    name: "Pro",
+    target: "Commerce en croissance",
+    monthly: 35000,
+    yearly: 350000,
+    features: [
+      "5 utilisateur(s)",
+      "3 boutique(s)",
+      "Ventes : 2 000/mois",
+      "Produits : 500",
+      "Suivi des dépenses",
+      "Rapports & analytics",
+      "Paiement multi-méthodes (Wave, Orange Money)",
+      "Export PDF & Excel",
+      "Crédits clients",
+      "Suivi fournisseurs",
+    ],
+    cta: "Essai gratuit 30 jours",
+    ctaHref: "login",
+    ctaDemo: false,
+    popular: true,
+  },
+  business: {
+    name: "Business",
+    target: "Multi-boutiques",
+    monthly: 75000,
+    yearly: 750000,
+    features: [
+      "Illimité utilisateur(s)",
+      "Illimité boutique(s)",
+      "Ventes : Illimité",
+      "Produits : Illimité",
+      "Suivi des dépenses",
+      "Rapports & analytics",
+      "Paiement multi-méthodes",
+      "Export PDF & Excel",
+      "Crédits clients",
+      "Suivi fournisseurs",
+      "Gestion des rôles",
+      "API & intégrations",
+      "Support prioritaire",
+      "Account manager dédié",
+      "Personnalisation (logo)",
+    ],
+    cta: "Demander une démo",
+    ctaHref: "demo",
+    ctaDemo: true,
+    popular: false,
+  },
+};
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [yearlyBilling, setYearlyBilling] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -473,7 +545,7 @@ function App() {
               </div>
               <span>Orange Money</span>
             </div>
-            <div
+            {/* <div
               className="payment-method payment-method-featured"
               title="Carte bancaire"
             >
@@ -484,7 +556,7 @@ function App() {
                 />
               </div>
               <span>Carte bancaire</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -494,109 +566,72 @@ function App() {
         <div className="section-header">
           <h2>Des tarifs adaptés à votre croissance</h2>
           <p>
-            Sans engagement. Essai gratuit 30 jours. Économisez 2 mois en payant
-            à l'année.
+            Sans engagement. Essai gratuit 30 jours. Économisez en payant à
+            l'année.
           </p>
         </div>
+        <div className="pricing-billing-toggle">
+          <button
+            type="button"
+            className={`pricing-billing-btn ${!yearlyBilling ? "active" : ""}`}
+            onClick={() => setYearlyBilling(false)}
+          >
+            Mensuel
+          </button>
+          <button
+            type="button"
+            className={`pricing-billing-btn ${yearlyBilling ? "active" : ""}`}
+            onClick={() => setYearlyBilling(true)}
+          >
+            Annuel
+            <span className="pricing-billing-badge">-17%</span>
+          </button>
+        </div>
         <div className="pricing-grid">
-          <div className="pricing-card">
-            <h3>Starter</h3>
-            <p className="target">Petit commerce</p>
-            <div className="price">
-              15 000 F <span>/ mois</span>
-            </div>
-            <ul className="pricing-features">
-              <li>
-                <Check size={18} /> 1 utilisateur, 1 boutique
-              </li>
-              <li>
-                <Check size={18} /> 100 ventes/mois
-              </li>
-              <li>
-                <Check size={18} /> 200 produits max
-              </li>
-              <li>
-                <Check size={18} /> POS complet
-              </li>
-              <li>
-                <Check size={18} /> Reçus de vente
-              </li>
-            </ul>
-            <a
-              href={`${APP_URL}/login`}
-              className="btn btn-secondary"
-              style={{ width: "100%" }}
-            >
-              Commencer
-            </a>
-          </div>
-          <div className="pricing-card popular">
-            <h3>Pro</h3>
-            <p className="target">Commerce en croissance</p>
-            <div className="price">
-              35 000 F <span>/ mois</span>
-            </div>
-            <ul className="pricing-features">
-              <li>
-                <Check size={18} /> 5 utilisateurs, 3 boutiques
-              </li>
-              <li>
-                <Check size={18} /> Ventes illimitées
-              </li>
-              <li>
-                <Check size={18} /> Wave & Orange Money
-              </li>
-              <li>
-                <Check size={18} /> Rapports & export PDF/Excel
-              </li>
-              <li>
-                <Check size={18} /> Crédits clients
-              </li>
-              <li>
-                <Check size={18} /> Gestion des rôles
-              </li>
-            </ul>
-            <a
-              href={`${APP_URL}/login`}
-              className="btn btn-primary"
-              style={{ width: "100%" }}
-            >
-              Essai gratuit 30 jours
-            </a>
-          </div>
-          <div className="pricing-card">
-            <h3>Business</h3>
-            <p className="target">Multi-boutiques</p>
-            <div className="price">
-              75 000 F <span>/ mois</span>
-            </div>
-            <ul className="pricing-features">
-              <li>
-                <Check size={18} /> Illimité
-              </li>
-              <li>
-                <Check size={18} /> API & intégrations
-              </li>
-              <li>
-                <Check size={18} /> Rapports avancés
-              </li>
-              <li>
-                <Check size={18} /> Account manager
-              </li>
-              <li>
-                <Check size={18} /> Support 24/7
-              </li>
-            </ul>
-            <a
-              href={DEMO_WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-demo"
-              style={{ width: "100%" }}
-            >
-              <MessageCircle size={18} /> Demander une démo
-            </a>
-          </div>
+          {(Object.keys(PLANS) as Array<keyof typeof PLANS>).map((key) => {
+            const plan = PLANS[key];
+            const price = yearlyBilling ? plan.yearly : plan.monthly;
+            const period = yearlyBilling ? " / an" : " / mois";
+            const formattedPrice = new Intl.NumberFormat("fr-FR").format(price);
+            return (
+              <div
+                key={key}
+                className={`pricing-card ${plan.popular ? "popular" : ""}`}
+              >
+                <h3>{plan.name}</h3>
+                <p className="target">{plan.target}</p>
+                <div className="price">
+                  {formattedPrice} F <span>{period}</span>
+                </div>
+                <ul className="pricing-features">
+                  {plan.features.map((f) => (
+                    <li key={f}>
+                      <Check size={18} /> {f}
+                    </li>
+                  ))}
+                </ul>
+                {plan.ctaDemo ? (
+                  <a
+                    href={DEMO_WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-demo"
+                    style={{ width: "100%" }}
+                  >
+                    <MessageCircle size={18} /> {plan.cta}
+                  </a>
+                ) : (
+                  <a
+                    href={`${APP_URL}/${plan.ctaHref}`}
+                    className={plan.popular ? "btn btn-primary" : "btn btn-secondary"}
+                    style={{ width: "100%" }}
+                  >
+                    {plan.cta}
+                  </a>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
 
