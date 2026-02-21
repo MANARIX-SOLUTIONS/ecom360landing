@@ -18,6 +18,7 @@ import {
   Quote,
   MessageCircle,
 } from "lucide-react";
+import { Analytics, track } from "@vercel/analytics/react";
 import "./App.css";
 import "./Landing.css";
 
@@ -150,6 +151,7 @@ function App() {
 
   return (
     <>
+      <Analytics />
       {/* Header */}
       <header className={`landing-header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner container">
@@ -178,10 +180,15 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-demo"
+                onClick={() => track("landing_demo_click", { location: "header" })}
               >
                 <MessageCircle size={18} /> Démo
               </a>
-              <a href={`${APP_URL}/register`} className="btn btn-primary">
+              <a
+                href={`${APP_URL}/register`}
+                className="btn btn-primary"
+                onClick={() => track("landing_signup_click", { location: "header" })}
+              >
                 Essai gratuit
               </a>
             </div>
@@ -218,14 +225,20 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-demo"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  track("landing_demo_click", { location: "mobile_menu" });
+                  setMobileMenuOpen(false);
+                }}
               >
                 <MessageCircle size={18} /> Demander une démo
               </a>
               <a
                 href={`${APP_URL}/register`}
                 className="btn btn-primary"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  track("landing_signup_click", { location: "mobile_menu" });
+                  setMobileMenuOpen(false);
+                }}
               >
                 Essai gratuit
               </a>
@@ -266,7 +279,11 @@ function App() {
               </span>
             </div>
             <div className="hero-actions">
-              <a href={`${APP_URL}/register`} className="btn btn-primary">
+              <a
+                href={`${APP_URL}/register`}
+                className="btn btn-primary"
+                onClick={() => track("landing_signup_click", { location: "hero" })}
+              >
                 Démarrer 30 jours gratuits
               </a>
               <a
@@ -274,10 +291,15 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-demo"
+                onClick={() => track("landing_demo_click", { location: "hero" })}
               >
                 <MessageCircle size={18} /> Demander une démo
               </a>
-              <a href="#pricing" className="btn btn-secondary">
+              <a
+                href="#pricing"
+                className="btn btn-secondary"
+                onClick={() => track("landing_pricing_click", { location: "hero" })}
+              >
                 Voir les tarifs
               </a>
             </div>
@@ -479,7 +501,11 @@ function App() {
           </div>
         </div>
         <div className="steps-cta">
-          <a href={`${APP_URL}/register`} className="btn btn-primary">
+          <a
+            href={`${APP_URL}/register`}
+            className="btn btn-primary"
+            onClick={() => track("landing_signup_click", { location: "how_it_works" })}
+          >
             Commencer maintenant — C'est gratuit
           </a>
           <a
@@ -487,6 +513,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-demo"
+            onClick={() => track("landing_demo_click", { location: "how_it_works" })}
           >
             <MessageCircle size={18} /> Demander une démo
           </a>
@@ -617,14 +644,30 @@ function App() {
                     rel="noopener noreferrer"
                     className="btn btn-demo"
                     style={{ width: "100%" }}
+                    onClick={() =>
+                      track("landing_demo_click", {
+                        location: "pricing",
+                        plan: plan.name,
+                      })
+                    }
                   >
                     <MessageCircle size={18} /> {plan.cta}
                   </a>
                 ) : (
                   <a
                     href={`${APP_URL}/${plan.ctaHref}`}
-                    className={plan.popular ? "btn btn-primary" : "btn btn-secondary"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={
+                      plan.popular ? "btn btn-primary" : "btn btn-secondary"
+                    }
                     style={{ width: "100%" }}
+                    onClick={() =>
+                      track("landing_signup_click", {
+                        location: "pricing",
+                        plan: plan.name,
+                      })
+                    }
                   >
                     {plan.cta}
                   </a>
@@ -671,7 +714,13 @@ function App() {
             moins de 5 minutes.
           </p>
           <div className="cta-buttons">
-            <a href={`${APP_URL}/register`} className="btn btn-cta">
+            <a
+              href={`${APP_URL}/register`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-cta"
+              onClick={() => track("landing_signup_click", { location: "cta" })}
+            >
               Démarrer gratuitement — Sans engagement
             </a>
             <a
@@ -679,6 +728,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-cta-demo"
+              onClick={() => track("landing_demo_click", { location: "cta" })}
             >
               <MessageCircle size={20} /> Demander une démo
             </a>
@@ -701,7 +751,8 @@ function App() {
               © 2026 Ecom 360 PME — Sénégal & Afrique
             </div>
             <div className="footer-powered">
-              Powered by <span className="footer-powered-name">Manarix Solutions</span>
+              Powered by{" "}
+              <span className="footer-powered-name">Manarix Solutions</span>
             </div>
           </div>
         </div>
