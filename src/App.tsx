@@ -172,7 +172,13 @@ function App() {
               </a>
             </div>
             <div className="nav-actions">
-              <a href={`${APP_URL}/login`} className="nav-login">
+              <a 
+              href={`${APP_URL}/login`} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-login"
+              onClick={() => track("landing_login_click", { location: "header" })}
+              >
                 Connexion
               </a>
               <a
@@ -186,6 +192,8 @@ function App() {
               </a>
               <a
                 href={`${APP_URL}/register`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary"
                 onClick={() => track("landing_signup_click", { location: "header" })}
               >
