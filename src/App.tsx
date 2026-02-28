@@ -223,6 +223,8 @@ function App() {
             </a>
             <a
               href={`${APP_URL}/login`}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
             >
               Connexion
@@ -242,6 +244,8 @@ function App() {
               </a>
               <a
                 href={`${APP_URL}/register`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary"
                 onClick={() => {
                   track("landing_signup_click", { location: "mobile_menu" });
@@ -289,6 +293,8 @@ function App() {
             <div className="hero-actions">
               <a
                 href={`${APP_URL}/register`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary"
                 onClick={() => track("landing_signup_click", { location: "hero" })}
               >
@@ -511,6 +517,8 @@ function App() {
         <div className="steps-cta">
           <a
             href={`${APP_URL}/register`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary"
             onClick={() => track("landing_signup_click", { location: "how_it_works" })}
           >
