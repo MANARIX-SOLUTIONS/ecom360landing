@@ -6,7 +6,6 @@ import {
   Package,
   Users,
   BarChart3,
-  CreditCard,
   Store,
   Check,
   Smartphone,
@@ -51,11 +50,11 @@ const TESTIMONIALS = [
 const FAQ_ITEMS = [
   {
     q: "Puis-je essayer gratuitement ?",
-    a: "Oui ! Chaque nouveau compte bénéficie de 30 jours d'essai gratuit du plan Pro. Aucune carte bancaire requise pour commencer.",
+    a: "Oui ! Chaque nouveau compte bénéficie de 30 jours d'essai gratuit du plan Pro. Inscription immédiate, sans frais pendant l'essai, et vous choisissez ensuite le plan qui vous convient sans perdre vos données ni vos réglages.",
   },
   {
     q: "Mes données sont-elles sécurisées ?",
-    a: "Absolument. Toutes les données sont chiffrées (SSL/TLS), sauvegardées automatiquement chaque jour, et stockées sur des serveurs sécurisés.",
+    a: "Absolument. Toutes les données sont chiffrées (SSL/TLS), sauvegardées automatiquement chaque jour, et stockées sur des serveurs sécurisés au niveau international.",
   },
   {
     q: "Puis-je annuler à tout moment ?",
@@ -63,7 +62,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Comment payer ? Wave, Orange Money ?",
-    a: "Nous acceptons Wave, Orange Money et carte bancaire. Choisissez la méthode qui vous convient.",
+    a: "Nous acceptons Wave et Orange Money. Choisissez la méthode qui vous convient.",
   },
 ];
 
@@ -103,6 +102,7 @@ const PLANS = {
       "Crédits clients",
       "Suivi fournisseurs",
       "Gestion des livreurs (livraison)",
+      "Onboarding accompagné pendant l'essai",
     ],
     cta: "Essai gratuit 30 jours",
     ctaHref: "login",
@@ -199,7 +199,7 @@ function App() {
                 className="btn btn-primary"
                 onClick={() => track("landing_signup_click", { location: "header" })}
               >
-                Essai gratuit
+                Essai 30 jours offert
               </a>
             </div>
           </nav>
@@ -254,7 +254,7 @@ function App() {
                   setMobileMenuOpen(false);
                 }}
               >
-                Essai gratuit
+                Essai 30 jours offert
               </a>
             </div>
           </div>
@@ -266,17 +266,17 @@ function App() {
         <div className="hero-inner container">
           <div className="hero-content">
             <p className="hero-eyebrow">
-              La solution tout-en-un pour les commerces africains
+              Le POS pensé pour les commerces africains qui veulent grandir
             </p>
             <h1>
-              Vendez plus, gérez mieux.
+              Augmentez vos ventes,
               <br />
-              <span className="highlight">Sans perdre de temps.</span>
+              <span className="highlight">gardez le contrôle de votre boutique.</span>
             </h1>
             <p>
-              POS tactile, stocks en temps réel, Wave & Orange Money, rapports
-              automatiques — tout ce dont vous avez besoin pour faire grandir
-              votre commerce.
+              Encaissez en Wave & Orange Money, suivez vos stocks en temps réel et
+              voyez chaque jour combien vous avez vraiment gagné — depuis votre
+              téléphone ou votre ordinateur.
             </p>
             <div className="hero-badges">
               <span className="badge">
@@ -321,7 +321,7 @@ function App() {
             </div>
             <div className="hero-trust">
               <span>
-                <Shield size={16} /> Données sécurisées
+                <Shield size={16} /> Données sécurisées au Sénégal
               </span>
               <span>
                 <Zap size={16} /> Sans engagement
@@ -464,7 +464,7 @@ function App() {
           </div>
           <div className="feature-card">
             <div className="feature-icon">
-              <CreditCard size={24} />
+              <Wallet size={24} />
             </div>
             <h3>Paiements locaux</h3>
             <p>
@@ -499,8 +499,8 @@ function App() {
             <span className="step-num">1</span>
             <h3>Créez votre compte</h3>
             <p>
-              Email, mot de passe — c'est tout. Pas de carte bancaire pour
-              l'essai.
+              Email, mot de passe — c'est tout. L'essai est gratuit, sans
+              paiement à l'inscription.
             </p>
           </div>
           <div className="step">
@@ -524,7 +524,7 @@ function App() {
             className="btn btn-primary"
             onClick={() => track("landing_signup_click", { location: "how_it_works" })}
           >
-            Commencer maintenant — C'est gratuit
+            Commencer maintenant — 30 jours offerts
           </a>
           <a
             href={DEMO_WHATSAPP_URL}
@@ -535,6 +535,44 @@ function App() {
           >
             <MessageCircle size={18} /> Demander une démo
           </a>
+        </div>
+      </section>
+
+      {/* Free trial value */}
+      <section className="trial-value">
+        <div className="section-header">
+          <h2>Pendant vos 30 jours d'essai</h2>
+          <p>
+            L'objectif n'est pas seulement de tester le logiciel, mais de mettre
+            en place une vraie routine de gestion qui vous fera gagner du temps
+            chaque semaine.
+          </p>
+        </div>
+        <div className="steps trial-steps">
+          <div className="step">
+            <span className="step-num">A</span>
+            <h3>Mise en place guidée</h3>
+            <p>
+              Nous vous aidons à configurer vos boutiques, vos catégories et vos
+              moyens d'encaissement pour que tout soit prêt rapidement.
+            </p>
+          </div>
+          <div className="step">
+            <span className="step-num">B</span>
+            <h3>Import de vos données clés</h3>
+            <p>
+              Ajoutez vos produits et vos principaux clients pour démarrer avec
+              des données réalistes, pas une simple démo vide.
+            </p>
+          </div>
+          <div className="step">
+            <span className="step-num">C</span>
+            <h3>Suivi de vos premiers résultats</h3>
+            <p>
+              Suivez vos premières journées de ventes dans les rapports et voyez
+              concrètement l'impact sur vos chiffres.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -590,18 +628,6 @@ function App() {
               </div>
               <span>Orange Money</span>
             </div>
-            {/* <div
-              className="payment-method payment-method-featured"
-              title="Carte bancaire"
-            >
-              <div className="payment-method-img">
-                <img
-                  src="/images/payments/credit-card.svg"
-                  alt="Carte bancaire"
-                />
-              </div>
-              <span>Carte bancaire</span>
-            </div> */}
           </div>
         </div>
       </section>
@@ -611,8 +637,7 @@ function App() {
         <div className="section-header">
           <h2>Des tarifs adaptés à votre croissance</h2>
           <p>
-            Sans engagement. Essai gratuit 30 jours. Économisez en payant à
-            l'année.
+            Sans engagement. Essai gratuit 30 jours avec accompagnement pour bien configurer votre boutique. Économisez en payant à l'année.
           </p>
         </div>
         <div className="pricing-billing-toggle">
@@ -728,8 +753,7 @@ function App() {
         <div className="cta-inner">
           <h2>Rejoignez 500+ commerces qui font confiance à Ecom 360 PME</h2>
           <p>
-            30 jours d'essai gratuit. Aucune carte bancaire. Opérationnel en
-            moins de 5 minutes.
+            30 jours d'essai gratuit avec accompagnement pour vos premiers pas. Sans engagement. Opérationnel en moins de 5 minutes.
           </p>
           <div className="cta-buttons">
             <a
