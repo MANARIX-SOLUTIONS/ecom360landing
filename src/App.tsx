@@ -16,6 +16,7 @@ import {
   ChevronUp,
   Quote,
   MessageCircle,
+  Receipt,
 } from "lucide-react";
 import { Analytics, track } from "@vercel/analytics/react";
 import "./App.css";
@@ -23,7 +24,8 @@ import "./Landing.css";
 
 const APP_URL = import.meta.env.VITE_APP_URL || "http://localhost:5173";
 const WHATSAPP_DEMO = import.meta.env.VITE_WHATSAPP_DEMO || "221778000000";
-const WHATSAPP_DEMO_TEXT = "Bonjour, je souhaite demander une démo de Ecom 360 PME.";
+const WHATSAPP_DEMO_TEXT =
+  "Bonjour, je souhaite demander une démo de Ecom 360 PME.";
 const DEMO_WHATSAPP_URL = `https://wa.me/${WHATSAPP_DEMO}?text=${encodeURIComponent(WHATSAPP_DEMO_TEXT)}`;
 
 const TESTIMONIALS = [
@@ -174,12 +176,14 @@ function App() {
               </a>
             </div>
             <div className="nav-actions">
-              <a 
-              href={`${APP_URL}/login`} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-login"
-              onClick={() => track("landing_login_click", { location: "header" })}
+              <a
+                href={`${APP_URL}/login`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-login"
+                onClick={() =>
+                  track("landing_login_click", { location: "header" })
+                }
               >
                 Connexion
               </a>
@@ -188,7 +192,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-demo"
-                onClick={() => track("landing_demo_click", { location: "header" })}
+                onClick={() =>
+                  track("landing_demo_click", { location: "header" })
+                }
               >
                 <MessageCircle size={18} /> Démo
               </a>
@@ -197,7 +203,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
-                onClick={() => track("landing_signup_click", { location: "header" })}
+                onClick={() =>
+                  track("landing_signup_click", { location: "header" })
+                }
               >
                 Essai 30 jours offert
               </a>
@@ -271,12 +279,14 @@ function App() {
             <h1>
               Augmentez vos ventes,
               <br />
-              <span className="highlight">gardez le contrôle de votre boutique.</span>
+              <span className="highlight">
+                gardez le contrôle de votre boutique.
+              </span>
             </h1>
             <p>
-              Encaissez en Wave & Orange Money, suivez vos stocks en temps réel et
-              voyez chaque jour combien vous avez vraiment gagné — depuis votre
-              téléphone ou votre ordinateur.
+              Encaissez en Wave & Orange Money, suivez vos stocks en temps réel
+              et voyez chaque jour combien vous avez vraiment gagné — depuis
+              votre téléphone ou votre ordinateur.
             </p>
             <div className="hero-badges">
               <span className="badge">
@@ -298,7 +308,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
-                onClick={() => track("landing_signup_click", { location: "hero" })}
+                onClick={() =>
+                  track("landing_signup_click", { location: "hero" })
+                }
               >
                 Démarrer 30 jours gratuits
               </a>
@@ -307,14 +319,18 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-demo"
-                onClick={() => track("landing_demo_click", { location: "hero" })}
+                onClick={() =>
+                  track("landing_demo_click", { location: "hero" })
+                }
               >
                 <MessageCircle size={18} /> Demander une démo
               </a>
               <a
                 href="#pricing"
                 className="btn btn-secondary"
-                onClick={() => track("landing_pricing_click", { location: "hero" })}
+                onClick={() =>
+                  track("landing_pricing_click", { location: "hero" })
+                }
               >
                 Voir les tarifs
               </a>
@@ -338,17 +354,38 @@ function App() {
                 <h3>Tableau de bord — Aujourd'hui</h3>
               </div>
               <div className="hero-stats">
-                <div className="hero-stat">
-                  <span>127 450 F</span>
-                  <small>Ventes</small>
+                <div className="hero-stat hero-stat--lead">
+                  <div className="hero-stat-metric">
+                    <span className="hero-stat-icon" aria-hidden>
+                      <Wallet size={20} strokeWidth={2} />
+                    </span>
+                    <div
+                      className="hero-stat-money-inner"
+                      aria-label="127 450 francs CFA"
+                    >
+                      <span className="hero-stat-amount">127 450</span>
+                      <span className="hero-stat-currency">FCFA</span>
+                    </div>
+                  </div>
+                  <small className="hero-stat-label">Ventes</small>
                 </div>
                 <div className="hero-stat">
-                  <span>23</span>
-                  <small>Transactions</small>
+                  <div className="hero-stat-metric">
+                    <span className="hero-stat-icon" aria-hidden>
+                      <Receipt size={20} strokeWidth={2} />
+                    </span>
+                    <span className="hero-stat-value">23</span>
+                  </div>
+                  <small className="hero-stat-label">Transactions</small>
                 </div>
                 <div className="hero-stat">
-                  <span>12</span>
-                  <small>Produits vendus</small>
+                  <div className="hero-stat-metric">
+                    <span className="hero-stat-icon" aria-hidden>
+                      <Package size={20} strokeWidth={2} />
+                    </span>
+                    <span className="hero-stat-value">12</span>
+                  </div>
+                  <small className="hero-stat-label">Produits vendus</small>
                 </div>
               </div>
             </div>
@@ -522,7 +559,9 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
-            onClick={() => track("landing_signup_click", { location: "how_it_works" })}
+            onClick={() =>
+              track("landing_signup_click", { location: "how_it_works" })
+            }
           >
             Commencer maintenant — 30 jours offerts
           </a>
@@ -531,7 +570,9 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-demo"
-            onClick={() => track("landing_demo_click", { location: "how_it_works" })}
+            onClick={() =>
+              track("landing_demo_click", { location: "how_it_works" })
+            }
           >
             <MessageCircle size={18} /> Demander une démo
           </a>
@@ -637,7 +678,8 @@ function App() {
         <div className="section-header">
           <h2>Des tarifs adaptés à votre croissance</h2>
           <p>
-            Sans engagement. Essai gratuit 30 jours avec accompagnement pour bien configurer votre boutique. Économisez en payant à l'année.
+            Sans engagement. Essai gratuit 30 jours avec accompagnement pour
+            bien configurer votre boutique. Économisez en payant à l'année.
           </p>
         </div>
         <div className="pricing-billing-toggle">
@@ -753,7 +795,8 @@ function App() {
         <div className="cta-inner">
           <h2>Rejoignez 500+ commerces qui font confiance à Ecom 360 PME</h2>
           <p>
-            30 jours d'essai gratuit avec accompagnement pour vos premiers pas. Sans engagement. Opérationnel en moins de 5 minutes.
+            30 jours d'essai gratuit avec accompagnement pour vos premiers pas.
+            Sans engagement. Opérationnel en moins de 5 minutes.
           </p>
           <div className="cta-buttons">
             <a
