@@ -53,6 +53,7 @@ import {
   trialSansEngagementPricing,
   trialStickyCourt,
 } from "./trial";
+import { ProductShowcase } from "./ProductShowcase";
 
 const APP_URL = import.meta.env.VITE_APP_URL || "http://localhost:5173";
 const WHATSAPP_DEMO = import.meta.env.VITE_WHATSAPP_DEMO || "221778000000";
@@ -446,6 +447,13 @@ function App() {
                 Fonctionnalités
               </a>
               <a
+                href="#apercu"
+                className="nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Aperçu
+              </a>
+              <a
                 href="#comparaison"
                 className="nav-link"
                 onClick={() => setMobileMenuOpen(false)}
@@ -491,7 +499,7 @@ function App() {
                 <MessageCircle size={18} /> Démo
               </a>
               <a
-                href={`${APP_URL}/register`}
+                href={`${APP_URL}/demo-request`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
@@ -522,6 +530,13 @@ function App() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Fonctionnalités
+            </a>
+            <a
+              href="#apercu"
+              className="nav-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Aperçu
             </a>
             <a
               href="#comparaison"
@@ -566,7 +581,7 @@ function App() {
                 <MessageCircle size={18} /> Demander une démo
               </a>
               <a
-                href={`${APP_URL}/register`}
+                href={`${APP_URL}/demo-request`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
@@ -688,7 +703,7 @@ function App() {
             </div>
             <div className="hero-actions">
               <a
-                href={`${APP_URL}/register`}
+                href={`${APP_URL}/demo-request`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-hero-primary"
@@ -938,6 +953,8 @@ function App() {
         </div>
       </section>
 
+      <ProductShowcase />
+
       {/* Pain points / Benefits */}
       <section className="benefits">
         <div className="section-header" data-reveal>
@@ -1043,7 +1060,7 @@ function App() {
         </div>
         <div className="comparison-cta" data-reveal style={revealDelay(160)}>
           <a
-            href={`${APP_URL}/register`}
+            href={`${APP_URL}/demo-request`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -1146,7 +1163,7 @@ function App() {
           </div>
           <div className="mid-cta-actions">
             <a
-              href={`${APP_URL}/register`}
+              href={`${APP_URL}/demo-request`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
@@ -1205,7 +1222,7 @@ function App() {
         </div>
         <div className="steps-cta" data-reveal style={revealDelay(270)}>
           <a
-            href={`${APP_URL}/register`}
+            href={`${APP_URL}/demo-request`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
@@ -1405,7 +1422,9 @@ function App() {
               <div className="payment-method-img">
                 <img
                   src="/images/payments/wave.png"
-                  alt="Wave - Mobile Money"
+                  alt=""
+                  width={64}
+                  height={64}
                 />
               </div>
               <span>Wave</span>
@@ -1419,7 +1438,9 @@ function App() {
               <div className="payment-method-img">
                 <img
                   src="/images/payments/orange-money.png"
-                  alt="Orange Money"
+                  alt=""
+                  width={64}
+                  height={64}
                 />
               </div>
               <span>Orange Money</span>
@@ -1584,7 +1605,7 @@ function App() {
           </p>
           <div className="cta-buttons">
             <a
-              href={`${APP_URL}/register`}
+              href={`${APP_URL}/demo-request`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-cta"
@@ -1612,7 +1633,7 @@ function App() {
         aria-label="Actions rapides"
       >
         <a
-          href={`${APP_URL}/register`}
+          href={`${APP_URL}/demo-request`}
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary mobile-sticky-cta-primary"
@@ -1650,6 +1671,7 @@ function App() {
           </div>
           <nav className="footer-links" aria-label="Pied de page">
             <a href="#features">Fonctionnalités</a>
+            <a href="#apercu">Aperçu</a>
             <a href="#comparaison">Comparatif</a>
             <a href="#pricing">Tarifs</a>
             <a href="#faq">FAQ</a>
